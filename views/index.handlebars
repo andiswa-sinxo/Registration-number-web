@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div class ="container">
+        <div>
+            <h1>REGISTRATION NUMBER APP</h1>
+        </div>
+
+    <div>
+        <p>Please enter a valid registration number and press the add button</p>
+    </div>
+
+    <div class="regInput">
+        <form action="/reg_number" method="post">
+        
+        <label for="Registration">Registration Number:</label>
+        <input type="text" class="inputPlate" name="registration" placeholder="eg CA 123, CY 123 etc">
+   
+
+        <button class="add" type="submit"name="add">Add</button>
+        </form> 
+    </div>
+
+     <div class="display">
+         {{#each reg}}
+        <ul>
+            <li>{{this}}</li>
+        </ul>
+        {{/each}}
+        </div>
+    </div>
+    
+</body>
+</html>

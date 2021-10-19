@@ -16,16 +16,29 @@
         
         <label for="Registration">Registration Number:</label>
         <input type="text" class="inputPlate" name="registration" placeholder="eg CA 123, CY 123 etc">
-   
+
+        
 
         <button class="add" type="submit"name="add">Add</button>
+
+        <div class="registrationPlate">
+            <input type="radio" class="cape" name="plate" value="Cape Town">
+            <label for="cape">Cape Town</label>
+            <input type="radio" class="paarl" name="plate" value="Paarl">
+            <label for="paarl">Paarl</label>
+            <input type="radio" class="stelle" name="plate" value="Stellenbosch">
+            <label for="stelle">Stellenbosch</label>
+            <input type="radio" class="all" name="plate" value="All">
+            <label for="all">Show All</label>
+
+        </div>
         </form> 
     </div>
 
      <div class="display">
          {{#each reg}}
         <ul>
-            <li>{{this}}</li>
+            {{this}}
         </ul>
         {{/each}}
         </div>

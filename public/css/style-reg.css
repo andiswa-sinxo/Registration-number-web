@@ -16,8 +16,9 @@ body{
 
 .container{
     border-style: outset;
+    background-color:linen;
     text-align: center;
-    height: 500px;
+    height: 700px;
     width: 1200px;
     margin-left: 300px;
 }

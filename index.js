@@ -48,31 +48,50 @@ app.use(bodyParser.json())
 app.use(express.static('public'));
 
 app.get('/' ,async function (req, res) {
-    var code = await regPlate.getReg()
+    try {
+        var code = await regPlate.getReg()
 
     res.render('index', {code})
+    } catch (error) {
+        console.error(error)
+    }
+    
 })
 
 app.post('/reg_number' ,async function (req, res){
-    var number = req.body.registration
+    try {
+        var number = req.body.registration
     await regPlate.numberPlate(number)
      await regPlate.getReg()
         // console.log(reg);
     
     res.redirect('/')
+    } catch (error) {
+        console.log(error)
+    }
+    
 })
 
 app.get('/reg_number', async function (req, res){
-    
+    try {
         var code = await regPlate.getReg()
         console.log(code);
         res.redirect('/')
+    } catch (error) {
+        console.log(error)
+    }
+       
 })
 
  app.post('/reset', async function (req, res) {
-    await regPlate.resetButton()
-    //  req.flash('info', 'The app has successfully reset!')
-/    res.redirect('/')
+     try {
+        await regPlate.resetButton()
+        //  req.flash('info', 'The app has successfully reset!')
+        res.redirect('/')
+     } catch (error) {
+         console.log(error)
+     }
+    
 })
 
 

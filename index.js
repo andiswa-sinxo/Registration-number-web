@@ -9,11 +9,11 @@ const pg = require("pg");
 const Pool = pg.Pool;
 
 
-let useSSL = false;
-let local = process.env.LOCAL || false;
- if (process.env.DATABASE_URL && !local){
-     useSSL = {rejectUnauthorized: false}
- }
+// let useSSL = false;
+// let local = process.env.LOCAL || false;
+//  if (process.env.DATABASE_URL && !local){
+//      useSSL = {rejectUnauthorized: false}
+//  }
 
 const app = express();
 
@@ -26,7 +26,9 @@ const handlebarSetup = exphbs({
 const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg123@localhost:5432/my_registration';
 const pool = new Pool({
     connectionString,
-    ssl : useSSL
+    ssl :  {
+    rejectUnauthorized: false
+    }
   });
 
   const regPlate = Registration(pool)

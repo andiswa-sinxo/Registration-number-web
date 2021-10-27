@@ -28,17 +28,25 @@
             <label for="paarl">Paarl</label>
             <input type="radio" class="stelle" name="plate" value="Stellenbosch">
             <label for="stelle">Stellenbosch</label>
-            <input type="radio" class="all" name="plate" value="All">
-            <label for="all">Show All</label>
 
         </div>
+         <button class="show" type="submit"name="show">Show All</button>
+        
         </form> 
+    </div>
+        
+    <div>
+       
+
+        <form action="/reset" method="post">
+         <button class="reset" type="submit"name="reset">Clear</button>
+         </form>
     </div>
 
      <div class="display" style="margin-top: 80px;">
-         {{#each reg}}
+         {{#each code}}
         <ul>
-            {{this}}
+            {{this.reg_no}}
         </ul>
         {{/each}}
         </div>

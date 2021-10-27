@@ -15,7 +15,8 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.3.4",
     "express-session": "^1.17.2",
-    "flash-express": "^1.0.4"
+    "flash-express": "^1.0.4",
+    "pg": "^7.4.3"
   },
   "devDependencies": {
     "eslint": "^8.0.1"

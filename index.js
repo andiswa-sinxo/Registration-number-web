@@ -1,5 +1,5 @@
 // const flash = require('express-flash');
-const session = require('express-session');
+// const session = require('express-session');
 const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
@@ -32,11 +32,12 @@ const pool = new Pool({
   });
 
   const regPlate = Registration(pool)
-app.use(session({
-    secret: "<add a secret string here>",
-    resave: false,
-    saveUninitialized: true
-}));
+
+// app.use(session({
+//     secret: "<add a secret string here>",
+//     resave: false,
+//     saveUninitialized: true
+// }));
 
 // app.use(flash())
 app.engine('handlebars', handlebarSetup);

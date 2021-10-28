@@ -58,21 +58,27 @@ p{
     background-color: transparent;
 }
 .reset{
-    margin-bottom: 50px;
     height: 40px;
     width: 10%;
     background-color: transparent;
     float: right;
-    margin-top: -90px;
+    margin-top: -40px;
     margin-right: 400px;
+   
 }
-.show{
+.view{
     margin-bottom: 50px;
     height: 40px;
     width: 10%;
     background-color: transparent;
-    margin-top: 80px;
-    margin-right: 160px;
+    margin-left: 50px;
+}
+
+.show{
+    height: 40px;
+    width: 10%;
+    background-color: transparent;
+    margin-right: 90px;
 }
 
 .registrationPlate{
@@ -85,4 +91,18 @@ p{
     /* font-size: 30px; */
     position: sticky;
     cursor: pointer;
+}
+
+.entry{
+    color: red;
+    font-size: 20px;
+    padding-top: 20px;
+    margin-left: 60px;
+}
+
+.rs{
+    color:green;
+    font-size: 20px;
+    padding-top: 20px;
+    margin-left: 60px;
 }

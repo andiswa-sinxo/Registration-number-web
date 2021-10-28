@@ -59,19 +59,19 @@ module.exports = function Registration(pool) {
         }
     }
 
-    // async function filterId(){
-        
-    //     let filtering = await pool.query('SELECT reg_no FROM reg WHERE code_id = $1');
-    //     return filtering.rows
-    // }
+    async function filterId(id){
+        var codeId = await getId(id)
+        let filtering = await pool.query('SELECT reg_no FROM reg WHERE code_id = $1', [codeId]);
+        return filtering.rows
+    }
     
     return {
         getId,
         registrationNumber,
         numberPlate,
         getReg,
-        resetButton
-        // filterId
+        resetButton,
+        filterId
         
     }
 }

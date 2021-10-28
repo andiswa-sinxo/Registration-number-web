@@ -1,10 +1,10 @@
-// const flash = require('express-flash');
+const flash = require('express-flash');
 const session = require('express-session');
 const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const Registration = require('./reg-stript'); 
-// const router = require('./reg-routes/regi-route')
+const router = require('./reg-routes/regi-route')
 const pg = require("pg");
 const Pool = pg.Pool;
 
@@ -33,13 +33,15 @@ const pool = new Pool({
 
   const regPlate = Registration(pool)
 
+  const regRoute = router(regPlate)
+
 app.use(session({
     secret: "<add a secret string here>",
     resave: false,
     saveUninitialized: true
 }));
 
-// app.use(flash())
+app.use(flash())
 app.engine('handlebars', handlebarSetup);
 app.set('view engine', 'handlebars');
 
@@ -48,52 +50,17 @@ app.use(bodyParser.json())
 
 app.use(express.static('public'));
 
-app.get('/' ,async function (req, res) {
-    try {
-        var code = await regPlate.getReg()
+app.get('/', regRoute.home);
 
-    res.render('index', {code})
-    } catch (error) {
-        console.error(error)
-    }
+app.post('/reg_number', regRoute.number);
     
-})
+app.get('/reg_number', regRoute.code);
 
-app.post('/reg_number' ,async function (req, res){
-    try {
-        var number = req.body.registration
-    await regPlate.numberPlate(number)
-     await regPlate.getReg()
-        // console.log(reg);
-    
-    res.redirect('/')
-    } catch (error) {
-        console.log(error)
-    }
-    
-})
+app.post('/towns', regRoute.filter);
 
-app.get('/reg_number', async function (req, res){
-    try {
-        var code = await regPlate.getReg()
-        console.log(code);
-        res.redirect('/')
-    } catch (error) {
-        console.log(error)
-    }
-       
-})
+ app.post('/reset', regRoute.reset);
 
- app.post('/reset', async function (req, res) {
-     try {
-        await regPlate.resetButton()
-        //  req.flash('info', 'The app has successfully reset!')
-        res.redirect('/')
-     } catch (error) {
-         console.log(error)
-     }
-    
-})
+app.get('/all', regRoute.view);
 
 
 

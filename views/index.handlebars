@@ -10,34 +10,49 @@
     <div>
         <p>Please enter a valid registration number and press the add button</p>
     </div>
+            {{#if messages.error}}
+                <div class="entry">
+                    <h3> {{messages.error}}</h3>
+                </div>
+                {{/if}}
 
+                {{#if messages.info}}
+                <div class="rs">
+                    <h3> {{messages.info}}</h3>
+                </div>
+                {{/if}}
     <div class="regInput">
         <form action="/reg_number" method="post">
         
         <label for="Registration">Registration Number:</label>
-        <input type="text" class="inputPlate" name="registration" placeholder="eg CA 123, CY 123 etc">
+        <input type="text" class="inputPlate" name="registration" placeholder="eg CA/CJ/CY 123-123">
 
-        
+         
 
         <button class="add" type="submit"name="add">Add</button>
+            </form> 
+
 
         <div class="registrationPlate">
-            <input type="radio" class="cape" name="plate" value="Cape Town">
+                <form action="/towns" method="post">
+            <input type="radio" class="cape" name="plate" value="CA">
             <label for="cape">Cape Town</label>
-            <input type="radio" class="paarl" name="plate" value="Paarl">
+            <input type="radio" class="paarl" name="plate" value="CJ">
             <label for="paarl">Paarl</label>
-            <input type="radio" class="stelle" name="plate" value="Stellenbosch">
-            <label for="stelle">Stellenbosch</label>
+            <input type="radio" class="bell" name="plate" value="CY">
+            <label for="stelle">Bellville</label>
 
+         <button class="view" type="submit"name="view">View</button>
+        </form>
         </div>
-         <button class="show" type="submit"name="show">Show All</button>
-        
-        </form> 
-    </div>
-        
-    <div>
-       
 
+        <div>
+            <a href="/all">
+            <button class="show" type="submit" name="show">View All</button>
+            </a>
+        </div>
+
+    <div>
         <form action="/reset" method="post">
          <button class="reset" type="submit"name="reset">Clear</button>
          </form>

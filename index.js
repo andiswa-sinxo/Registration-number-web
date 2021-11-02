@@ -9,11 +9,11 @@ const pg = require("pg");
 const Pool = pg.Pool;
 
 
-let useSSL = false;
-let local = process.env.LOCAL || false;
- if (process.env.DATABASE_URL && !local){
-     useSSL = {rejectUnauthorized: false}
- }
+// let useSSL = false;
+// let local = process.env.LOCAL || false;
+//  if (process.env.DATABASE_URL && !local){
+//     useSSL = {rejectUnauthorized: false}
+//  }
 
 const app = express();
 
@@ -27,9 +27,12 @@ const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg123@l
 const pool = new Pool({
     connectionString,
     ssl :  {
-    rejectUnauthorized: false
+        rejectUnauthorized: false
     }
   });
+
+  console.log('... ...')
+
 
   const regPlate = Registration(pool)
 

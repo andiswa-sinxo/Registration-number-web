@@ -41,11 +41,14 @@ module.exports = function regNumber(regPlate) {
 
     async function filter(req, res) {
         var filter = req.body.plate
-        var code = await regPlate.filterId(filter)
+        
 
         if (!filter) {
             req.flash('error', "Please select a town")
+        }else{
+            var code = await regPlate.filterId(filter)
         }
+
         res.render("index", { code })
     }
     async function reset(req, res) {
@@ -61,7 +64,6 @@ module.exports = function regNumber(regPlate) {
 
     async function view(req, res) {
         try {
-            req.flash('error', 'Please enter a registration number and select a town')
             res.redirect('/')
         } catch (error) {
             console.log(error)

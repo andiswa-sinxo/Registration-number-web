@@ -6,7 +6,7 @@ module.exports = function Registration(pool) {
                 return null
              } 
              if(regNo.startsWith('CA') || regNo.startsWith('CJ') || regNo.startsWith('CY')){
-                 await registrationNumber(regNo)
+                 return await registrationNumber(regNo)
              }
         } catch (error) {
             console.error(error)

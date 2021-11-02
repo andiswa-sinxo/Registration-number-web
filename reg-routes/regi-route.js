@@ -4,9 +4,11 @@ module.exports = function regNumber(regPlate) {
         try {
             var code = await regPlate.getReg()
 
-            res.render('index', { code })
+            return res.render('index', { code });
+
         } catch (error) {
-            console.error(error)
+            console.error(error);
+            return res.send(error);
         }
 
     }

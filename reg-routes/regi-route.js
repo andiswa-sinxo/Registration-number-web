@@ -2,6 +2,7 @@ module.exports = function regNumber(regPlate) {
 
     async function home(req, res) {
         try {
+            console.log('in home')
             var code = await regPlate.getReg()
 
             return res.render('index', { code });

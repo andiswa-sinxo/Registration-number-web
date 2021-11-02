@@ -41,11 +41,12 @@ module.exports = function Registration(pool) {
 
     async function getReg(){
         try {
+            console.log("in getRef")
             var allReg = await pool.query('SELECT reg_no FROM reg')
             console.log(allReg.rows);
-                return allReg.rows
-            }
-         catch (error) {
+            return allReg.rows
+        }
+        catch (error) {
             console.log(error);
         }
         

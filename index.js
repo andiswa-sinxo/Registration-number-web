@@ -25,10 +25,10 @@ const handlebarSetup = exphbs({
 
 const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg123@localhost:5432/my_registration';
 const pool = new Pool({
-    connectionString,
-    ssl :  {
-        rejectUnauthorized: false
-    }
+    connectionString
+    // ssl :  {
+    //     rejectUnauthorized: false
+    // }
   });
 
   console.log('... ...')

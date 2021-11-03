@@ -5,6 +5,7 @@ const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const Registration = require('./reg-stript'); 
 const router = require('./reg-routes/regi-route')
+
 const pg = require("pg");
 const Pool = pg.Pool;
 
@@ -24,6 +25,10 @@ const handlebarSetup = exphbs({
 });
 
 const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg123@localhost:5432/my_registration';
+
+
+console.log(connectionString);
+
 const pool = new Pool({
     connectionString,
     ssl : useSSL

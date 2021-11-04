@@ -2,14 +2,14 @@ module.exports = function regNumber(regPlate) {
 
     async function home(req, res) {
         try {
-            console.log('in home')
+            // console.log('in home')
             var code = await regPlate.getReg()
 
-            return res.render('index', { code });
+            res.render('index', { code });
 
         } catch (error) {
             console.error(error);
-            return res.send(error);
+            // return res.send(error);
         }
 
     }

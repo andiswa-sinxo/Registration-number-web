@@ -27,7 +27,7 @@ const handlebarSetup = exphbs({
 const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg123@localhost:5432/my_registration';
 
 
-console.log(connectionString);
+// console.log(connectionString);
 
 const pool = new Pool({
     connectionString,
@@ -37,7 +37,7 @@ const pool = new Pool({
     // }
   });
 
-  console.log('... ...')
+//   console.log('... ...')
 
 
   const regPlate = Registration(pool)
